@@ -1,0 +1,5 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.tag-cloud-tag {
+    cursor: pointer;
+  }

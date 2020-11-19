@@ -1,0 +1,5 @@
+{
+    "port" : 5000,
+    "mongoUri": "mongodb+srv://Alex:qwe123@cluster0.bmqet.mongodb.net/app?retryWrites=true&w=majority",
+    "jwtSecret": "AlexSecretString"
+}
