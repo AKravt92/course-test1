@@ -7,6 +7,7 @@ const app = express()
 
 app.use(express.json({extended: true}))
 
+app.use(morgan('tiny'));
 app.use('/api/chapter', require('./routes/chapter.routes'))
 app.use('/api/auth', require('./routes/auth.routes'))
 app.use('/api/story', require('./routes/story.routes'))
@@ -14,13 +15,13 @@ app.use('/api/tags', require('./routes/tags.routes'))
 app.use('/api/liststory', require('./routes/liststory.routes'))
 
 if(process.env.NODE_ENV === 'production'){
-    app.use('/', express.static(path.join(__dirname, 'client', 'build')))
+    app.use(express.static(path.join(__dirname, 'client/build')))
 
     app.get('*', (req,res)=>{
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
     })
 }
-const PORT = config.get('port')||5000
+const PORT = process.env.PORT||5000
 
 async function start(){
     try {
